@@ -15,7 +15,6 @@ export default function Login() {
         signInWithPopup(auth,provider).then((data)=>{
             setValue(data.user.email)
             localStorage.setItem("email",data.user.email)
-            if(value)router.push('../main')
         })
     }
     useEffect(()=>{
@@ -31,7 +30,7 @@ export default function Login() {
                         <Header as='h2' color='blue' textAlign='center'>
                             <Icon name='plus circle'/> Log-in to your account
                         </Header>
-                        <Form action='/api/login' method="post">
+                        <Form action={value?router.push('../main'):'/api/login'} method="post">
                         <Form.Input name="email" fluid icon='user' iconPosition='left' placeholder='E-mail address' />
                         <Form.Input
                                 fluid
