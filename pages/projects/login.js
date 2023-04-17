@@ -15,11 +15,11 @@ export default function Login() {
         signInWithPopup(auth,provider).then((data)=>{
             setValue(data.user.email)
             localStorage.setItem("email",data.user.email)
+            if(value)router.push('../main')
         })
     }
     useEffect(()=>{
         setValue(localStorage.getItem('email'))
-        if(value)router.push('../main')
     })
     return (
         <>
