@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.6",
     "@next/font": "13.1.6",
     "chart.js": "^4.2.1",
     "crypto-js": "^4.1.1",
