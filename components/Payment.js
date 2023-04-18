@@ -4,22 +4,29 @@ import web3 from "../contracts/web3";
 import Project from "../contracts/project";
 import { Router } from "../scripts/route";
 class Payment extends Component {
+  state = {
+    loading: false,
+    floading: false,
+  };
   onApprove = async () => {
+    this.setState({ loading: true});
     const campaign = Project(this.props.address);
     const accounts = await web3.eth.getAccounts();
     await campaign.methods.approveRequest(this.props.id).send({
       from: accounts[0],
     });
+    this.setState({ loading: false });
     Router.pushRoute(`/projects/${this.props.address}/payments`);
   };
 
   onFinalize = async () => {
+    this.setState({ floading: true});
     const campaign = Project(this.props.address);
-
     const accounts = await web3.eth.getAccounts();
     await campaign.methods.MakePayment(this.props.id).send({
       from: accounts[0],
     });
+    this.setState({ floading: false });
     Router.pushRoute(`/projects/${this.props.address}/payments`);
   };
 
@@ -42,14 +49,14 @@ class Payment extends Component {
         </Cell>
         <Cell>
           {request.complete ? null : (
-            <Button disabled={request.approvalCount >= 1 ? 'disabled' : ''} color="blue" onClick={this.onApprove}>
+            <Button disabled={request.approvalCount >= 1 ? 'disabled' : ''} color="blue" onClick={this.onApprove} loading={this.state.loading}>
               Approve
             </Button>
           )}
         </Cell>
         <Cell>
           {request.complete ? null : (
-            <Button color="green" onClick={this.onFinalize}>
+            <Button color="green" onClick={this.onFinalize} loading={this.state.floading}>
               Finalize
             </Button>
           )}
