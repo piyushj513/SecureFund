@@ -11,6 +11,6 @@ export default async function handler(req,res){
         return res.json({status:'Not able to find the user'})
     }
     else{
-        return res.redirect('/main')
+        return res.redirect('../main')
     }
 }
