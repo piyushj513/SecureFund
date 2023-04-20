@@ -21,7 +21,7 @@ const Banner = () =>{
             </h1>
             <h1></h1>
             {showBanner == true ? <p>Start By Logging in with your account</p> : <p>Start By Creating a Campaign</p>}
-        <Link href={showBanner == true ? '/campaigns/login' : '/campaigns/new'}>
+        <Link href={showBanner == true ? '/projects/login' : '/projects/new'}>
             <Button
             className="massive ui inverted button"
               floated="center"
