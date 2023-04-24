@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card, Button } from "semantic-ui-react";
+import { Card, Button, Visibility } from "semantic-ui-react";
 import factory from "../../contracts/factory";
 import { Link } from "../../scripts/route";
 import Project from "../../contracts/project";
@@ -35,7 +35,7 @@ class openProject extends Component {
       const hdr = (CryptoJS.AES.decrypt(summ[5], 'my-secret-key@123').toString(CryptoJS.enc.Utf8)).replace(/['"]+/g, '');
       return {
         key: i,
-        image: <img  src={img} />,
+        image: <img src={img} width="100%" height="100%"/>,
         header: hdr,
         meta: `👤 ` + address,
         description: (
