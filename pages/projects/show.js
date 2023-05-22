@@ -77,6 +77,7 @@ class showProject extends Component {
         <Segment><Header>Funds Available : { web3.utils.fromWei(balance, "ether")} Ether</Header>Total funds generated</Segment>
         <Segment><Header>Total Contributors : {approversCount}</Header>Total Number of donators</Segment>
         <Segment><Header>Payments Made : {requestsCount}</Header>Total number of Payments made from this contract</Segment>
+        <Segment><Header><Link href={`https://testnet.snowtrace.io/address/${this.props.address}`} target="_blank">View Transactions on BlockChain</Link></Header></Segment>
       </Grid.Column>
     </Grid.Row>
   </Grid>

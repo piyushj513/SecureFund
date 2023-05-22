@@ -25,6 +25,7 @@ class openProject extends Component {
       )
     );
     this.setState({ summary });
+    console.log(summary)
   }
   renderProjects() {
     let summ;
