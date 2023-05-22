@@ -53,10 +53,10 @@ class openProject extends Component {
       <br></br>
       </div>
       <br></br>
-      <Button basic fluid color={(summ[1]/1000000000000000000)!=summ[8] ? 'red' : 'green'}>
+      <Button basic fluid color={(summ[1]/1000000000000000000)<summ[8] ? 'red' : 'green'}>
        Funds Available : {summ[1]/1000000000000000000} ether
       </Button>
-      <Button fluid color={(summ[1]/1000000000000000000)!=summ[8] ? 'red' : 'green'}>Project Status : {(summ[1]/1000000000000000000)!=summ[8] ? 'Pending' : 'Completed'}</Button>
+      <Button fluid color={(summ[1]/1000000000000000000)<summ[8] ? 'red' : 'green'}>Project Status : {(summ[1]/1000000000000000000)<summ[8] ? 'Pending' : 'Completed'}</Button>
       <br></br>
       </div>
         <Link route={`/projects/${address}`}>
