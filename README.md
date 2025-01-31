@@ -6,8 +6,9 @@ First set NEXT_PUBLIC_PRIVATE_KEY value to your crypto wallet's private key
 npx hardhat run .\scripts\deploy.js
 ```
 
-It'll display the address where the smart contract is deployed
-Set NEXT_PUBLIC_ADDRESS value to the contract address
+It'll display the address where the smart contract is deployed.
+
+et NEXT_PUBLIC_ADDRESS value to the contract address
 
 ## Next JS
 
