@@ -1,0 +1,34 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\premj\\Documents\\Code\\SecureFund-main\\contracts\\Project.sol": {
+      "lastModificationDate": 1738322784398,
+      "contentHash": "5e147ae189ddf82f44c62c59e6532dbf",
+      "sourceName": "contracts/Project.sol",
+      "solcConfig": {
+        "version": "0.8.9",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": ["ast"]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": ["^0.8.9"],
+      "artifacts": ["Project", "ProjectFactory"]
+    }
+  }
+}

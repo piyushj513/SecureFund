@@ -1,0 +1,39 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "funds": 10,
+      "payments": 5
+    },
+    {
+      "id": 2,
+      "funds": 20,
+      "payments": 10
+    },
+    {
+      "id": 2,
+      "funds": 15,
+      "payments": 7
+    },
+    {
+      "id": 4,
+      "funds": 30,
+      "payments": 25
+    },
+    {
+      "id": 2,
+      "funds": 19,
+      "payments": 9
+    },
+    {
+      "id": 5,
+      "funds": 30,
+      "payments": 23
+    },
+    {
+      "id": 3,
+      "funds": 40,
+      "payments": 25
+    }
+  ]
+}
