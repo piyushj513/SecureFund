@@ -38,15 +38,6 @@ const Metamask = () => {
       <Button inverted color="blue" onClick={connectWallet}>
         {balance == '' ? 'Connect' : <p>{balance.slice(0, 4)} Ether</p>}
       </Button>
-      <Button secondary>
-        {address == '' ? (
-          ''
-        ) : (
-          <p>
-            {address.slice(0, 6)}...{address.slice(39)}
-          </p>
-        )}
-      </Button>
     </div>
   );
 };

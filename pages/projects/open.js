@@ -7,6 +7,7 @@ import CryptoJS from 'crypto-js';
 
 const OpenProject = ({ projects }) => {
   const [summary, setSummary] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProjectDetails = async () => {
@@ -19,6 +20,8 @@ const OpenProject = ({ projects }) => {
         setSummary(projectSummaries);
       } catch (error) {
         console.error('Error fetching project details:', error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -58,7 +61,7 @@ const OpenProject = ({ projects }) => {
           <div className="project-content">
             <h3 className="project-title">
               {header}
-              <hr></hr>
+              <hr />
             </h3>
             <div className="project-details">
               <button
@@ -100,7 +103,15 @@ const OpenProject = ({ projects }) => {
     <Layout>
       <div className="project-container">
         <h2 className="projects-title">Open Projects</h2>
-        <div className="projects-grid">{renderProjects()}</div>
+        
+        {loading ? (
+          <div className="loading-container">
+            <div className="loading-spinner"></div>
+            <p>Loading projects...</p>
+          </div>
+        ) : (
+          <div className="projects-grid">{renderProjects()}</div>
+        )}
       </div>
     </Layout>
   );

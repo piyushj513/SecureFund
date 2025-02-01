@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Button } from 'semantic-ui-react';
 import Link from 'next/link';
 import Metamask from './Metamask';
+import { useRouter } from 'next/router';
+
 const Navbar = () => {
+  const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const logout = () => {
     localStorage.clear();
+    router.push('/');
   };
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
   return (
     <div>
       <nav className="navbar">
@@ -14,19 +23,28 @@ const Navbar = () => {
             <Link href="/main" className="nav-logo">
               SecureFund
             </Link>
-            <ul className="nav-menu">
+
+            {/* Hamburger Icon */}
+            <div className="hamburger" onClick={toggleMenu}>
+              <span className="bar"></span>
+              <span className="bar"></span>
+              <span className="bar"></span>
+            </div>
+
+            {/* Navigation Menu */}
+            <ul className={`nav-menu ${menuOpen ? 'active' : ''}`}>
               <li className="nav-item">
                 <Link href="/projects/new" className="nav-links">
                   Create Project
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href={'/projects/open'} className="nav-links">
+                <Link href="/projects/open" className="nav-links">
                   View Project
                 </Link>
               </li>
               <li className="nav-item">
-                <Link href={'/projects/reportmain'} className="nav-links">
+                <Link href="/projects/reportmain" className="nav-links">
                   Report
                 </Link>
               </li>
@@ -38,16 +56,15 @@ const Navbar = () => {
               <li className="nav-item-connect">
                 <Metamask />
               </li>
+              <li className="nav-item-connect">
+                  <Button
+                    onClick={logout}
+                    compact
+                    inverted
+                    icon="sign-out"
+                  ></Button>
+              </li>
             </ul>
-            <Link href="/">
-              <Button
-                onClick={logout}
-                floated="right"
-                compact
-                inverted
-                icon="sign-out"
-              />
-            </Link>
           </div>
         </Container>
       </nav>
